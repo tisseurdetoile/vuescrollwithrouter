@@ -1,0 +1,42 @@
+{
+  "name": "vuescrollwithrouter",
+  "description": "vue3 Scrollpage Application with vue-router",
+  "version": "1.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tisseurdetoile/vuescrollwithrouter.git"
+  },
+  "homepage": "https://github.com/tisseurdetoile/vuescrollwithrouter",
+  "keywords": [
+    "vue3",
+    "demo",
+    "scroll",
+    "vue-routeur"
+  ],
+  "author": "Le TisseurDeToile <webmaster@tisseurdetoile.net> (http://www.tisseurdetoile.net)",
+  "license": "GPL",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0",
+    "wave-ui": "^2.16.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2"
+  }
+}
