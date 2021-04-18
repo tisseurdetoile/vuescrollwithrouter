@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import MenuPoint from '@/components/MenuPoint'
 
 export default {
@@ -23,7 +23,6 @@ export default {
   data: function() {
     return {
       inMove: false,
-      activeRoute: 0,
       touchStartY: 0,
       scale: 1,
       listScrollableRoute: [],
@@ -125,8 +124,7 @@ export default {
 
     scrollToRoute(direction, id) {
       console.log('{}', direction, this.activeRoute)
-      this.activeRoute = id
-      this.$router.push(this.listScrollableRoute[this.activeRoute])
+      this.$router.push(this.listScrollableRoute[id])
 
       setTimeout(() => {
         this.inMove = false
@@ -140,16 +138,26 @@ export default {
         .getRoutes()
         .filter((route) => route.meta.scrollable)
 
-      this.activeRoute = this.listScrollableRoute.findIndex(
-        (route) => route.path === location.pathname
-      )
       console.log('fetchScrollableRouteEnd')
     },
   },
   setup() {
-    console.log('setup')
-    console.log('setupEnd')
+    const route = useRoute()
+
+    return { route }
   },
+
+  computed: {
+    activeRouteName: function() {
+      return this.route.name
+    },
+    activeRoute: function() {
+      return this.listScrollableRoute.findIndex(
+        (route) => route.name === this.route.name
+      )
+    },
+  },
+
   created() {
     this.fetchScrollableRoute()
     window.addEventListener('touchstart', this.touchstart, {
