@@ -14,14 +14,7 @@
 export default {
   name: 'About',
   components: {},
-  methods: {
-    onIntersectionElement(value) {
-      // value will be true when the component is visible on the page
-      console.log(value)
-
-      // you can do whatever you want
-    },
-  },
+  methods: {},
 }
 </script>
 

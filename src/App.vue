@@ -47,7 +47,9 @@ export default {
     },
 
     handleMouseWheel: function(e) {
+      /* eslint-disable no-console */
       console.log('handleMouseWheel', e.wheelDelta)
+      /* eslint-enable no-console */
 
       if (!this.inMove) {
         if (e.wheelDelta < 0) {
@@ -62,7 +64,9 @@ export default {
       return false
     },
     handleMouseWheelDOM: function(e) {
+      /* eslint-disable no-console */
       console.log('handleMouseWheelDOM')
+      /* eslint-enable no-console */
 
       if (!this.inMove) {
         if (e.detail > 0) {
@@ -76,13 +80,17 @@ export default {
       return false
     },
     touchStart(e) {
+      /* eslint-disable no-console */
       console.log('touchStart')
+      /* eslint-enable no-console */
       e.preventDefault()
 
       this.touchStartY = e.touches[0].clientY
     },
     touchMove(e) {
+      /* eslint-disable no-console */
       console.log('touchMove')
+      /* eslint-enable no-console */
       if (this.inMove) {
         return false
       }
@@ -100,7 +108,6 @@ export default {
       return false
     },
     moveDown() {
-      console.log('moveDown')
       this.inMove = true
       let newRoute = this.activeRoute
       newRoute--
@@ -112,7 +119,6 @@ export default {
       this.scrollToRoute('down', newRoute)
     },
     moveUp() {
-      console.log('moveUp')
       this.inMove = true
       let newRoute = this.activeRoute
       newRoute++
@@ -123,7 +129,6 @@ export default {
     },
 
     scrollToRoute(direction, id) {
-      console.log('{}', direction, this.activeRoute)
       this.$router.push(this.listScrollableRoute[id])
 
       setTimeout(() => {
@@ -132,13 +137,10 @@ export default {
     },
 
     fetchScrollableRoute() {
-      console.log('fetchScrollableRoute')
       const router = useRouter()
       this.listScrollableRoute = router
         .getRoutes()
         .filter((route) => route.meta.scrollable)
-
-      console.log('fetchScrollableRouteEnd')
     },
   },
   setup() {
@@ -170,7 +172,6 @@ export default {
     window.addEventListener('wheel', this.handleWheelListener)
   },
   unmounted() {
-    console.log('unmounted')
     window.removeEventListener('touchstart', this.touchStart) // mobile devices
     window.removeEventListener('touchmove', this.touchMove) // mobile devices
 
@@ -218,7 +219,6 @@ p.badge a {
   background: rgba(255, 255, 255, 0.3);
   padding: 5px 10px;
   color: #fff;
-  margin-left: 5px;
 }
 
 /** transition */
